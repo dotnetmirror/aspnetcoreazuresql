@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using DotnetMirror.ASPNETCORESQLDBWebApplication.Models;
 using System.Data;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using System.Linq;
 using DotnetMirror.ASPNETCORESQLDBWebApplication.Data;
 
@@ -105,14 +105,10 @@ namespace DotnetMirror.ASPNETCORESQLDBWebApplication.Data
             {
                 string objc = "select Code,[Name],ExamDate from Certification where code=@code";
 
-
-
-
                 SqlCommand objCmd = new SqlCommand();
                 objCmd.Parameters.AddWithValue("@code", id);
                 objCmd.CommandText = objc;
                 objCmd.Connection = objCon;
-
 
                 SqlDataAdapter da = new SqlDataAdapter(objCmd);
                 DataSet ds = new DataSet();
